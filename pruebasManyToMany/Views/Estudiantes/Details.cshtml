@@ -1,0 +1,47 @@
+﻿@model pruebasManyToMany.Models.EstudiantesIndexData
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Estudiante</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Estudiante.Nombres)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Estudiante.Nombres)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Estudiante.Apellido1)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Estudiante.Apellido1)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Estudiante.Apellido2)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Estudiante.Apellido2)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Estudiante.EstudianteAsignatura)
+        </dt>
+        <dd class="col-sm-2">
+            @foreach (var a in Model.Asignaturas)
+            {
+
+            <p>@Html.DisplayFor(model => a.Nombre)</p>
+
+            }
+        </dd>
+        </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Estudiante.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
